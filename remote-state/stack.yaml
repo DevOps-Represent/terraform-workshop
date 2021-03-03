@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Terraform remote state stack
+Parameters:
+  StateBucketNamePrefix:
+    Description: Name prefix of the state bucket
+    Type: String
+    Default: devops-girls-terraform
+  LockTableName:
+    Description: Name of the lock table
+    Type: String
+    Default: terraform
+
+Resources:
+  StateBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${StateBucketNamePrefix}-${AWS::AccountId}"
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+        - ServerSideEncryptionByDefault:
+            SSEAlgorithm: aws:kms
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  LockTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref LockTableName
+      AttributeDefinitions:
+      - AttributeName: LockID
+        AttributeType: S
+      KeySchema:
+      - AttributeName: LockID
+        KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+Outputs:
+  StateBucket:
+    Description: Name of the state bucket
+    Value: !Ref StateBucket
