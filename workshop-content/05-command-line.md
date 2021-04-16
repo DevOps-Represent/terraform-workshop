@@ -14,7 +14,7 @@ We're going to use the AWS CLI to get your AWS account ID to make your bucketnam
 export account_id=$(aws sts get-caller-identity --query Account --output text)
 export global_region=ap-southeast-2
 ```
-Now we're going to run the `terraform init` command to config the back by mapping to the resources we've created in our [remote-state-set-up](04-remote-state-set-up.md) steps
+Now we're going to run the `terraform init` command to config the backend by mapping to the resources we've created in our [remote-state-set-up](04-remote-state-set-up.md) steps
 
 ```
   terraform init \
@@ -32,6 +32,8 @@ Now we're going to run the `terraform init` command to config the back by mappin
   terraform workspace new $workspace 2> /dev/null || true
   terraform workspace select $workspace
 ```
-*This is just some bash magic that basically checks whether the workspace already exists and if it doesn't to create a workspace.*
+*This is just some bash that basically checks whether the workspace already exists and if it doesn't to create a workspace.*
 
 ## Instructions for Windows
+
+TODO
