@@ -30,5 +30,5 @@ How does this work though?
 
 ![remote-state](../images/s3-remote-state.png)
 
-
+## [NEXT SECTION  - Command Line 👉🏽](05-command-line.md)
 

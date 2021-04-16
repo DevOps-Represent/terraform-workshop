@@ -37,3 +37,5 @@ Now we're going to run the `terraform init` command to config the backend by map
 ## Instructions for Windows
 
 TODO
+
+## [NEXT SECTION  - Terraform File 👉🏽](06-terraform-files.md)
