@@ -74,3 +74,5 @@ There's lots of free versions, here's a few to pick from if you don't already ha
 [Sublime Text 3](https://www.sublimetext.com/3)
 
 Here's an even longer [list](https://hackr.io/blog/web-development-ide)
+
+## [NEXT SECTION  - File Structure 👉🏽](03-file-structure.md)
