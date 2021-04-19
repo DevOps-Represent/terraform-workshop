@@ -9,8 +9,12 @@ terraform {
   }
 
   backend "s3" {
-  workspace_key_prefix = "devops-girls-terraform-workshop"
+    workspace_key_prefix = "devops-girls-terraform-workshop"
+  }
+
 }
+
+
 
 provider "aws" {
   region = "ap-southeast-2"

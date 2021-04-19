@@ -21,7 +21,7 @@ Now we're going to run the `terraform init` command to config the backend by map
     -backend-config=region=$global_region \
     -backend-config=bucket=devops-girls-terraform-$account_id \
     -backend-config=key=terraform.tfstate \
-    -backend-config=dynamodb_table=devops-girls-terraform
+    -backend-config=dynamodb_table=terraform
 ```
 
 ### Define workspace
@@ -32,10 +32,13 @@ Now we're going to run the `terraform init` command to config the backend by map
   terraform workspace new $workspace 2> /dev/null || true
   terraform workspace select $workspace
 ```
+
+To check this has worked, you can run:
+
+`terraform workspace list`
+
+This should show your new workspace.
+
 *This is just some bash that basically checks whether the workspace already exists and if it doesn't to create a workspace.*
 
-## Instructions for Windows
-
-TODO
-
-## [NEXT SECTION  - Terraform File 👉🏽](06-terraform-files.md)
+## [NEXT SECTION  - Terraform Files 👉🏽](06-terraform-files.md)
