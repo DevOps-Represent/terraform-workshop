@@ -11,6 +11,9 @@ Run the following in your command line
 
 `git clone git@github.com:DevOps-Girls/terraform-workshop.git`
 
+If you don't have a GitHub account, download the zip folder of the repo:
+[Repo Zip Download](https://github.com/DevOps-Girls/terraform-workshop/archive/refs/heads/main.zip)
+
 ## 2. Install Terraform
 Terraform is used via commands in the command line. For these to work, you need to install it.
 
@@ -30,12 +33,24 @@ This is a good option if you've used `brew` previously for installing software o
 ### Windows
 This walkthrough has a few options for installing Terraform for Winodws, take the time to have a look at what best works for you:
 
-[Windows install walkthroughs](https://adamtheautomator.com/terraform-windows/#Installing_Terraform_on_Windows)
+#### WSL Install (Linux on Windows)
+Check your version of Windows
 
-It Covers:
-- the hard way (downloading and adding Terraform to your system PATH)
-- the easy way - using Chocolately, which is a package manager
-- Linux on Windows - only use this option if you're already using Linux on windows
+Press `Windows key` + `R`
+Type: `winver`
+1903 or higher
+
+TODO Add example image
+
+Docker instructions for older Windows
+
+Install Docker for Windows - [Instructions Here](https://docs.docker.com/docker-for-windows/install/)
+
+`docker run -it -v //C/path/to/repo:/devopsgirl-terraform ubuntu:latest --name devopsgirls-terraform`
+
+Follow the same instructions for Mac
+
+**Here's a link for [Trouble Shooting Tips](https://docs.microsoft.com/en-us/windows/wsl/install-win10#manual-installation-steps)**
 
 ## Personal AWS Account
 If you don't already have one, you'll have to set up a personal AWS account. If you don't have one, having an AWS account is key if you intend on continuing your AWS learning journey after this workshop.
