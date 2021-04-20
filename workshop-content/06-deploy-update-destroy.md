@@ -63,4 +63,4 @@ Great work! Now you can use the suggestions above to also confirm your s3 bucket
 *If you want to destroy your prod stack just update the name of the tfvars file from `config/dev.tfvars` to `config/prod.tfvars`*
 
 
-## [NEXT SECTION  - Summary 👉🏽](08-summary.md)
+## [NEXT SECTION  - Summary 👉🏽](07-summary.md)

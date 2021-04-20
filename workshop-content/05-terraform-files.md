@@ -100,9 +100,33 @@ resource "aws_s3_bucket" "web_hosting_bucket" {
   }
 }
 
+resource "aws_s3_bucket_policy" "web_hosting_policy" {
+  bucket = aws_s3_bucket.web_hosting_bucket.id
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression's result to valid JSON syntax.
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Id      = "webhosting-bucket-policy"
+    Statement = [
+      {
+        Sid       = "XXXX"
+        Effect    = "XXXX"
+        Principal = "*"
+        Action    = "XXXX"
+        Resource = [
+          XXXX
+          "XXXX/*",
+        ]
+      },
+    ]
+  })
+}
+
 ```
 Where `XXXX` appears, we need to fill in some information:
 
+### s3 Bucket
 * `bucket` - we will be using our `bucket_name` variable here - here is the documentation on [How To Use Variables](https://www.terraform.io/docs/language/values/variables.html#using-input-variable-values)
 * `acl` - let's take a look at the docs, which value do you think is best for web hosting? [Terraform AWS Docs ACL](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#acl)
 * `index_document` - we've provided you with some basic website files in the folder [website_files](/website_files)
@@ -110,9 +134,22 @@ Where `XXXX` appears, we need to fill in some information:
 
 ***
 
-## `policy.json`
-AWS documentation provides us with the bucket policy required for web hosting, so let's copy and paste that into our file - [s3 bucket policy for web hosting](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) - find "Granting read-only permission to an anonymous user"
+### `Bucket Policy`
+AWS documentation provides us with the bucket policy required for web hosting, so let's use this to fill in the fields with `XXXX` 
 
-**NOTE: you'll need to use your `bucket_name` variable in your policy**
+* `Sid, Effect, Action`: [s3 bucket policy for web hosting](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) - find "Granting read-only permission to an anonymous user"
+* `Resource` - you'll need the s3 bucket ARN, which can be done with Terraform - [use this example to work out how to add your ARN](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy#basic-usage)
 
-## [NEXT SECTION  - Terraform Commands 👉🏽](07-deploy-update-destroy.md)
+## Upload Your Website Files
+Now that you have an s3 bucket and policy set up for web hosting, you'll need to add some website files. Here's two possible ways to do this:
+
+#### Using the command line:
+- navigate to the website_files folder in this repo - `cd website_files`
+- sync the contents of this folder with your s3 bucket - `aws s3 sync . s3://yourbucketnamehere`
+
+#### Using the console:
+- navigate to your s3 bucket in the console
+- click `Upload` and choose the files to upload
+
+
+## [NEXT SECTION  - Terraform Commands 👉🏽](06-deploy-update-destroy.md)

@@ -90,4 +90,4 @@ There's lots of free versions, here's a few to pick from if you don't already ha
 
 Here's an even longer [list](https://hackr.io/blog/web-development-ide)
 
-## [NEXT SECTION  - File Structure 👉🏽](03-file-structure.md)
+## [NEXT SECTION  - Key Concepts 👉🏽](01-key-concepts.md)

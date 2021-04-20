@@ -20,3 +20,5 @@ The documentation is excellent. This means using Terraform can be easier to lear
 ## More Key Concepts:
 
 ![key-concepts](../images/key-concepts.png)
+
+## [NEXT SECTION  - File Structure 👉🏽](02-file-structure.md)

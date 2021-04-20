@@ -41,4 +41,4 @@ This should show your new workspace.
 
 *This is just some bash that basically checks whether the workspace already exists and if it doesn't to create a workspace.*
 
-## [NEXT SECTION  - Terraform Files 👉🏽](06-terraform-files.md)
+## [NEXT SECTION  - Terraform Files 👉🏽](05-terraform-files.md)
