@@ -1,8 +1,17 @@
 # Set-Up
-In this section, we're going to get everything we need ready to complete the workshops steps:
+In this section, we're going to get everything we need ready to complete the workshop steps.
+
+Here's what you'll need:
+1. [Close the repo to your local machine](#clone-the-repo-to-your-local-machine)
+2. [Install Terraform](#install-terraform)
+3. [Have a personal AWS account](#personal-aws-account)
+4. [Install AWS CLI and auth via the commandline](#install-the-aws-cli-and-auth-via-the-command-line) 
+5. [Have a code editor of your choice](#code-editor)
+
+***
 
 
-## 1. Clone the Repo to your local machine
+## Clone the Repo to your local machine
 Clone this repo. You're going to make it your own and make edits. It's yours to keep and play around.
 
 Choose a directory where you'd like to clone this repo to (it could even just be your desktop)
@@ -14,7 +23,7 @@ Run the following in your command line
 If you don't have a GitHub account, download the zip folder of the repo:
 [Repo Zip Download](https://github.com/DevOps-Girls/terraform-workshop/archive/refs/heads/main.zip)
 
-## 2. Install Terraform
+## Install Terraform
 Terraform is used via commands in the command line. For these to work, you need to install it.
 
 Here's how:
