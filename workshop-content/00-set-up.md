@@ -4,9 +4,10 @@ In this section, we're going to get everything we need ready to complete the wor
 Here's what you'll need:
 1. [Close the repo to your local machine](#clone-the-repo-to-your-local-machine)
 2. [Install Terraform](#install-terraform)
-3. [Have a personal AWS account](#personal-aws-account)
-4. [Install AWS CLI and auth via the commandline](#install-the-aws-cli-and-auth-via-the-command-line) 
-5. [Have a code editor of your choice](#code-editor)
+3. [Windows Instructions](#windows-instructions)
+4. [Have a personal AWS account](#personal-aws-account)
+5. [Install AWS CLI and auth via the commandline](#install-the-aws-cli-and-auth-via-the-command-line) 
+6. [Have a code editor of your choice](#code-editor)
 
 ***
 
@@ -39,25 +40,29 @@ Alternatively, you may also be able to run the following:
 
 This is a good option if you've used `brew` previously for installing software onto your Mac
 
-### Windows
-This walkthrough has a few options for installing Terraform for Winodws, take the time to have a look at what best works for you:
+## Windows Instructions
+This walkthrough has a few options for installing Terraform for Windows, take the time to have a look at what best works for you:
 
 #### WSL Install (Linux on Windows)
 Check your version of Windows
 
-Press `Windows key` + `R`
-Type: `winver`
-1903 or higher
+* Press `Windows key` + `R`
+* Type: `winver`
+Recquired Version: 1903 or higher
 
-TODO Add example image
+![Windows Version Example](../images/winver.png)
 
-Docker instructions for older Windows
 
-Install Docker for Windows - [Instructions Here](https://docs.docker.com/docker-for-windows/install/)
+* If the version is OK, follow these instructions [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
+#### Docker Install (Ubuntu)
+* If the version is older, then the easiest option is to use Docker - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
+
+* Run docker to spin up a Ubuntu container:
 `docker run -it -v //C/path/to/repo:/devopsgirl-terraform ubuntu:latest --name devopsgirls-terraform`
 
-Follow the same instructions for Mac
+
+Once you have WSL or Ubuntu using docker, you can now follow the same instructions for Mac to install Terraform
 
 **Here's a link for [Trouble Shooting Tips](https://docs.microsoft.com/en-us/windows/wsl/install-win10#manual-installation-steps)**
 
@@ -66,7 +71,7 @@ If you don't already have one, you'll have to set up a personal AWS account. If 
 
 - If you DO have an account, log in *(preferably not as root and you've set up a user via IAM that has permissions to deploy resources)*
 
-- if you DONT have an account, go [HERE](https://aws.amazon.com/) to create one, you'll need a credit card - don't worry no cost will be incured today
+- If you DONT have an account, go [HERE](https://aws.amazon.com/) to create one, you'll need a credit card - Don't worry no cost will be incured today
 
 ## Install the AWS CLI and auth via the command line
 As we're running commands via the command line that will allow you to deploy AWS resources, you need to authenticate to your personal AWS via the command line.
