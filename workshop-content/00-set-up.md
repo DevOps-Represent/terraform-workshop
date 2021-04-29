@@ -2,7 +2,7 @@
 In this section, we're going to get everything we need ready to complete the workshop steps.
 
 Here's what you'll need:
-1. [Close the repo to your local machine](#clone-the-repo-to-your-local-machine)
+1. [Clone the repo to your local machine](#clone-the-repo-to-your-local-machine)
 2. [Install Terraform](#install-terraform)
 3. [Windows Instructions](#windows-instructions)
 4. [Have a personal AWS account](#personal-aws-account)
