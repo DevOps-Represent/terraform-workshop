@@ -1,11 +1,11 @@
 # S3 bucket for web hosting
 resource "aws_s3_bucket" "web_hosting_bucket" {
-  bucket = "XXXX"
-  acl    = "XXXX"
+  bucket = var.bucket_name
+  acl    = "public-read"
 
   website {
-    index_document = "XXXX"
-    error_document = "XXXX"
+    index_document = "index.html"
+    error_document = "error.html"
   }
 
   tags = {
@@ -23,13 +23,13 @@ resource "aws_s3_bucket_policy" "web_hosting_policy" {
     Id      = "MYBUCKETPOLICY"
     Statement = [
       {
-        Sid       = "XXXX"
-        Effect    = "XXXX"
+        Sid       = "PublicRead"
+        Effect    = "Allow"
         Principal = "*"
-        Action    = "XXXX"
+        Action    = "s3:GetObject"
         Resource = [
-          XXXX
-          "XXXX/*",
+          aws_s3_bucket.web_hosting_bucket.arn,
+          "${aws_s3_bucket.web_hosting_bucket.arn}/*",
         ]
       },
     ]
