@@ -99,7 +99,6 @@ Here's where we configure an s3 bucket for website hosting. Let's try and avoid 
 resource "aws_s3_bucket" "web_hosting_bucket" {
   bucket = "XXXX"
   acl    = "XXXX"
-  policy = templatefile("policy.json")
 
   website {
     index_document = "XXXX"
@@ -150,4 +149,6 @@ AWS documentation provides us with the bucket policy required for web hosting, s
 - `Sid, Effect, Action`: [s3 bucket policy for web hosting](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) - find "Granting read-only permission to an anonymous user"
 - `Resource` - you'll need the s3 bucket ARN, which can be done with Terraform - [use this example to work out how to add your ARN](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy#basic-usage)
 
+
 ## [NEXT SECTION - Terraform Commands 👉🏽](06-deploy-update-destroy.md)
+
