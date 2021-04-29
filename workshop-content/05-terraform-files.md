@@ -92,7 +92,6 @@ Here's where we configure an s3 bucket for website hosting. Let's try and avoid 
 resource "aws_s3_bucket" "web_hosting_bucket" {
   bucket = "XXXX"
   acl    = "XXXX"
-  policy = templatefile("policy.json")
 
   website {
     index_document = "XXXX"
