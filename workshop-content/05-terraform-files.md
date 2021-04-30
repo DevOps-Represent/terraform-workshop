@@ -36,28 +36,7 @@ Here's what we're creating:
 
 ## `terraform.tf`
 
-Now that we have created this file in the root-level of our repo, let's start filling in the required information:
-
-```
-terraform {
-  required_version = "XXXX"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "XXXX"
-    }
-  }
-
-```
-
-Where `XXXX` appears, we need to fill in with some information:
-
-Run the following command to find out what version of Terraform you're working with:
-
-`terraform -version`
-
-To find out the LATEST version of AWS Terraform, you can visit this page: [AWS Latest Version](https://registry.terraform.io/providers/hashicorp/aws/latest)
+We updated this file in the last step!
 
 ---
 
@@ -149,6 +128,4 @@ AWS documentation provides us with the bucket policy required for web hosting, s
 - `Sid, Effect, Action`: [s3 bucket policy for web hosting](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) - find "Granting read-only permission to an anonymous user"
 - `Resource` - you'll need the s3 bucket ARN, which can be done with Terraform - [use this example to work out how to add your ARN](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy#basic-usage)
 
-
 ## [NEXT SECTION - Terraform Commands 👉🏽](06-deploy-update-destroy.md)
-

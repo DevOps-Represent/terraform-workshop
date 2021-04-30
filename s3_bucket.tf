@@ -29,7 +29,7 @@ resource "aws_s3_bucket_policy" "web_hosting_policy" {
         Action    = "XXXX"
         Resource = [
           XXXX,
-          "XXXX/*",
+          "XXXX/*"
         ]
       },
     ]
