@@ -28,7 +28,7 @@ resource "aws_s3_bucket_policy" "web_hosting_policy" {
         Principal = "*"
         Action    = "XXXX"
         Resource = [
-          XXXX
+          XXXX,
           "XXXX/*",
         ]
       },
