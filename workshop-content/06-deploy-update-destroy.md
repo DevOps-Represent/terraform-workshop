@@ -77,7 +77,7 @@ To clean up your account, run the following command:
 
 `terraform plan -destroy -var-file="config/dev.tfvars"`
 
-and if you are happy with the 'destroy plan', make sure your s3 bucket is empty, then run:
+and if you are happy with the 'destroy plan', [**make sure your s3 bucket is empty**](https://docs.aws.amazon.com/AmazonS3/latest/userguide/empty-bucket.html), then run:
 
 `terraform destroy -var-file="config/dev.tfvars"`
 
