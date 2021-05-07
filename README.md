@@ -62,11 +62,11 @@ The workshop will be a mix of theoretical, hands-on, collaboration and solo work
 
 [Remote State Set Up](workshop-content/03-remote-state-set-up.md)
 
+[Command Line](workshop-content/04-command-line.md)
 
 *Break*
 
 ## Part 2
-[Command Line](workshop-content/04-command-line.md)
 
 [Terraform Files](workshop-content/05-terraform-files.md)
 
