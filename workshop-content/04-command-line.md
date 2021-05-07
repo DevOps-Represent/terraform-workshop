@@ -104,6 +104,10 @@ This needs to match the **DynamoDB table** name you created in your [Remote Stat
 
 `-backend-config=dynamodb_table=terraform` 
 
+If you've had some issues already and the `terraform-init` command is telling you the bucket doesn't exist, try the following command to remove th state lock file:
+
+`rm -rf .terraform .terraform.lock.hcl`
+
 </p></details>
 
 

@@ -3,7 +3,7 @@ In this section we're going to go through the steps of setting up your remote st
 
 There's [more than one way to set up your remote state](https://www.terraform.io/docs/language/settings/backends/index.html), the way we're doing it today is using AWS resources, here's the [official Terraform documentation](https://www.terraform.io/docs/language/settings/backends/s3.html) on this.
 
-We're going to deploy these resources using Cloudformation.
+We're going to deploy these resources using Cloudformation in ap-southeast-2 Sydney **(Make sure you're in the right region!)**
 
 The Cloudformation template we're using can be found [HERE](../remote-state/stack.yaml).
 
