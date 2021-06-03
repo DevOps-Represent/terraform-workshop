@@ -2,15 +2,7 @@
 
 In this section we are going to prepare our infrastructure using terraform files!
 
-Here's the files we can now create at the root-level in our repo:
-
-**`terraform.tf`**
-
-In this file, we are going to configure:
-
-- the version/provider of Terraform we're working with
-- our s3 state back end
-- AWS as a provider
+Here's the files we can now edit in our repo:
 
 **`variables.tf`**
 
@@ -22,42 +14,11 @@ In this file, we are going to provide different variable values based on whether
 
 **`s3_bucket.tf`**
 
-In this file, we are going to configure an s3 bucket that is enabled for basic website hosting
-
-**`policy.json`**
-
-In this file, we are going to provide a bucket policy that enables public-read access so people can view your website
+In this file, we are going to configure an s3 bucket and bucket policy that is enabled for basic website hosting
 
 Here's what we're creating:
 
 ![s3 bucket for web hosting](../images/s3-web-hosting.png)
-
----
-
-## `terraform.tf`
-
-Now that we have created this file in the root-level of our repo, let's start filling in the required information:
-
-```
-terraform {
-  required_version = "XXXX"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "XXXX"
-    }
-  }
-
-```
-
-Where `XXXX` appears, we need to fill in with some information:
-
-Run the following command to find out what version of Terraform you're working with:
-
-`terraform -version`
-
-To find out the LATEST version of AWS Terraform, you can visit this page: [AWS Latest Version](https://registry.terraform.io/providers/hashicorp/aws/latest)
 
 ---
 
@@ -92,7 +53,9 @@ As bucket names must be unique, replace `XXXX` with a unique value like your nam
 
 ## `s3_bucket.tf`
 
-Here's where we configure an s3 bucket for website hosting. Let's try and avoid a simple copy paste and take a look at the official documentation to fill in the required information!
+Here's where we create and configure an s3 bucket and policy for website hosting. You'll see we're using [Terraform 'resource'](https://www.terraform.io/docs/language/resources/syntax.html) for this.
+
+Let's try and avoid a simple copy paste and take a look at the official documentation to fill in the required information!
 
 ```
 # S3 bucket for web hosting
@@ -121,8 +84,8 @@ resource "aws_s3_bucket_policy" "web_hosting_policy" {
         Principal = "*"
         Action    = "XXXX"
         Resource = [
-          XXXX
-          "XXXX/*",
+          XXXX,
+          "XXXX/*"
         ]
       },
     ]
@@ -149,6 +112,4 @@ AWS documentation provides us with the bucket policy required for web hosting, s
 - `Sid, Effect, Action`: [s3 bucket policy for web hosting](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) - find "Granting read-only permission to an anonymous user"
 - `Resource` - you'll need the s3 bucket ARN, which can be done with Terraform - [use this example to work out how to add your ARN](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy#basic-usage)
 
-
 ## [NEXT SECTION - Terraform Commands 👉🏽](06-deploy-update-destroy.md)
-

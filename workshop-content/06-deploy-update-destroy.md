@@ -77,12 +77,14 @@ To clean up your account, run the following command:
 
 `terraform plan -destroy -var-file="config/dev.tfvars"`
 
-and if you are happy with the 'destroy plan', make sure your s3 bucket is empty, then run:
+and if you are happy with the 'destroy plan', [**make sure your s3 bucket is empty**](https://docs.aws.amazon.com/AmazonS3/latest/userguide/empty-bucket.html), then run:
 
 `terraform destroy -var-file="config/dev.tfvars"`
 
 Great work! Now you can use the suggestions above to also confirm your s3 bucket has in fact been deleted.
 
 _If you want to destroy your prod stack just update the name of the tfvars file from `config/dev.tfvars` to `config/prod.tfvars`_
+
+Remember to also delete the Cloudformation stack holding your remote state setup- after emptying your state bucket, delete the `devops-girls-terraform-workshop` from the Cloudformation console. 
 
 ## [NEXT SECTION - Summary 👉🏽](07-summary.md)

@@ -2,11 +2,13 @@
 This section will cover the key concepts we're going to be referencing throughout the workshop.
 
 ## What is Terraform?
-Terraform is an open-source tool for building infrastructure as code. It was created by Hashicorp and is maintained and updated by a very active open-source community.
+Terraform is an open-source tool for building infrastructure/service as code. It was created by Hashicorp and is maintained and updated by a very active open-source community.
 
 Terraform is made up of its own command line tool, syntax and file/directory structure.
 
-Terraform is cloud agnostic. This means, you can deploy your infrastructure across multiple cloud providers using the same method. This is unlike Cloudformation which is only used for AWS and Azure's Resource Manager templates for deploying to Azure only.
+Terraform is cloud agnostic. This means, you can deploy your infrastructure across multiple cloud providers using the same method. This is unlike Cloudformation which is only used for AWS and Azure's Resource Manager templates for deploying to Azure only. 
+
+Here's the [Full List of Providers](https://registry.terraform.io/search/providers?namespace=hashicorp)
 
 ## Why should I be learning Terraform?
 Terraform makes infrastructure as code easy and is a really important tool if you want your tech stacks to be easily deployable, version controlled and replicable. 
