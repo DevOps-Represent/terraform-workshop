@@ -61,7 +61,7 @@ Now we're going to run the `terraform init` command to configure the backend by 
 ```bash
 terraform init \
   -backend-config=region=$global_region \
-  -backend-config=bucket=devops-girls-terraform-$account_id \
+  -backend-config=bucket=devops-represent-terraform-$account_id \
   -backend-config=key=terraform.tfstate \
   -backend-config=dynamodb_table=terraform
 ```
@@ -74,7 +74,7 @@ terraform init \
 Now we can create our workspace and give it a name:
 
 ```bash
-export workspace=devops-girls-terraform-workshop
+export workspace=devops-represent-terraform-workshop
 terraform workspace new $workspace 2> /dev/null || true
 terraform workspace select $workspace
 ```
@@ -96,7 +96,7 @@ You'll face some issues if your initialization details don't match your backend 
 
 This needs to match the **s3 Bucket** you created in your [Remote State Stack](../remote_state/stack.yaml)
 
-`-backend-config=bucket=devops-girls-terraform-$account_id \` 
+`-backend-config=bucket=devops-represent-terraform-$account_id \` 
 
 
 This needs to match the **DynamoDB table** name you created in your [Remote State Stack](../remote_state/stack.yaml)

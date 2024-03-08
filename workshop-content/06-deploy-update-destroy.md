@@ -85,6 +85,6 @@ Great work! Now you can use the suggestions above to also confirm your s3 bucket
 
 _If you want to destroy your prod stack just update the name of the tfvars file from `config/dev.tfvars` to `config/prod.tfvars`_
 
-Remember to also delete the Cloudformation stack holding your remote state setup- after emptying your state bucket, delete the `devops-girls-terraform-workshop` from the Cloudformation console. 
+Remember to also delete the Cloudformation stack holding your remote state setup- after emptying your state bucket, delete the `devops-represent-terraform-workshop` from the Cloudformation console. 
 
 ## [NEXT SECTION - Summary 👉🏽](07-summary.md)

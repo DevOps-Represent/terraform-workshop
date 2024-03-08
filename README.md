@@ -1,6 +1,6 @@
 # Terraform Workshop
 
-DevOps Girls with the massive support from SEEKers are hosting workshops on Terraform!
+DevOps Represent with the massive support from SEEKers are hosting workshops on Terraform!
 
 <details><summary>Who would benefit from this workshop?</summary><p>
 
@@ -52,8 +52,8 @@ The workshop will be a mix of theoretical, hands-on, collaboration and solo work
 ## Before the Workshop
 [Set Up Instructions](workshop-content/00-set-up.md)
 
-*Reach out to the DevOps Girls slack community before the workshop if you're having any issues with your set up, we will be happy to help!*
-*If you're not a member of a slack community, you can DM on Twitter for an invite - [@DevOpsGirls](https://twitter.com/DevOpsGirls)*
+*Reach out to the DevOps Represent slack community before the workshop if you're having any issues with your set up, we will be happy to help!*
+*If you're not a member of a slack community, you can DM on Twitter / X for an invite - [@DevOpsRepresent](https://twitter.com/DevOpsRepresent)*
 
 ## PART 1
 [Key Concepts](workshop-content/01-key-concepts.md)

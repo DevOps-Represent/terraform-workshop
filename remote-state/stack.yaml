@@ -4,7 +4,7 @@ Parameters:
   StateBucketNamePrefix:
     Description: Name prefix of the state bucket
     Type: String
-    Default: devops-girls-terraform
+    Default: devops-represent-terraform
   LockTableName:
     Description: Name of the lock table
     Type: String

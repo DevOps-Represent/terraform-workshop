@@ -19,10 +19,10 @@ Choose a directory where you'd like to clone this repo to (it could even just be
 
 Run the following in your command line
 
-`git clone git@github.com:DevOps-Girls/terraform-workshop.git`
+`git clone git@github.com:DevOps-Represent/terraform-workshop.git`
 
 If you don't have a GitHub account, download the zip folder of the repo:
-[Repo Zip Download](https://github.com/DevOps-Girls/terraform-workshop/archive/refs/heads/main.zip)
+[Repo Zip Download](https://github.com/DevOps-Represent/terraform-workshop/archive/refs/heads/main.zip)
 
 ## Install Terraform
 Terraform is used via commands in the command line. For these to work, you need to install it.
@@ -59,7 +59,7 @@ Recquired Version: 1903 or higher
 * If the version is older, then the easiest option is to use Docker - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
 * Run docker to spin up a Ubuntu container:
-`docker run -it -v //C/path/to/repo:/devopsgirl-terraform ubuntu:latest --name devopsgirls-terraform`
+`docker run -it -v //C/path/to/repo:/devopsgirl-terraform ubuntu:latest --name devopsrepresent-terraform`
 
 
 Once you have WSL or Ubuntu using docker, you can now follow the same instructions for Mac to install Terraform

@@ -7,7 +7,7 @@ We're going to deploy these resources using Cloudformation in ap-southeast-2 Syd
 
 The Cloudformation template we're using can be found [HERE](../remote-state/stack.yaml).
 
-This [template](../remote-state/stack.yaml) provisions a CloudFormation stack in ap-southeast-2 that contains a S3 bucket named devops-girls-terraform-XXXXX where XXXXX is the ID of the AWS account, as well as a DynamoDB lock table.
+This [template](../remote-state/stack.yaml) provisions a CloudFormation stack in ap-southeast-2 that contains a S3 bucket named devops-represent-terraform-XXXXX where XXXXX is the ID of the AWS account, as well as a DynamoDB lock table.
 
 To deploy this stack we can log into the AWS Console and follow these steps:
 
@@ -18,8 +18,8 @@ To deploy this stack we can log into the AWS Console and follow these steps:
 5. Click `Choose file`
 6. Select your locally saved file `/remote-state/stack.yaml`
 7. Click `Next`
-8. Give your stack a name `devops-girls-terraform-workshop`
-9. Check your parameters (LockTableName = terraform, StateBucketNamePrefix=devops-girls-terraform)
+8. Give your stack a name `devops-represent-terraform-workshop`
+9. Check your parameters (LockTableName = terraform, StateBucketNamePrefix=devops-represent-terraform)
 10. Click `Next`
 11. Click `Next`
 12. Click `Create Stack`
