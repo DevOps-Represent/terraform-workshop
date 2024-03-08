@@ -20,6 +20,15 @@ Terraform enables you to preview what your changes will do before you deploy. Th
 The documentation is excellent. This means using Terraform can be easier to learn that other methods for infra as code.
 
 ## How does Terraform work?
+![terraform-flow-diagram](../images/terraform-diagram-full.png)
+
+```
+Practitioner uses Infrastructure as Code 
+-> To Plan 
+-> To Apply 
+-> To Deploy to Cloud Provider 
+-> Cloud Provider create Resources and Infrastructure 
+```
 
 ### API Driven
 Terraform works using API calls to the provider to create, manage and modify resources. 
