@@ -30,5 +30,22 @@ How does this work though?
 
 ![remote-state](../images/s3-remote-state.png)
 
+`S3 bucket` - Stores the state of your Terraform stack
+`DynamoDB Table` - Used for State Locking and Consistentcy Checking. It does this by storing bucket and key variables in a table. 
+
+### What is State Locking and why does it matter?
+State locking prevents two or more people making concurrent changes to a stack. This is important when multiple people are working with Terraform to create infrastructure.
+
+For instance if
+
+* Person A modfies an S3 bucket with terraform. 
+* Meanwhile Person B modifies the same S3 bucket in their terraform at the same time. 
+
+If there is no state locking, then its easy for there to be changes that Terraform is not aware of when it applies the plan. Causing the one or both of the terraform applies to fail. 
+
+A State lock prevents this by only allowing one user at a time to modify, create or delete a resource. Other users trying to modify the resource at the same time get a message to tell them this resource is locked.
+
+Once Person A has finished their apply, the resource is unlocked and Person B can see the updated changes in their Terraform to the resource before they apply their changes.  
+
 ## [NEXT SECTION  - Command Line 👉🏽](04-command-line.md)
 
