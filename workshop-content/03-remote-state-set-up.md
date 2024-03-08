@@ -26,11 +26,12 @@ To deploy this stack we can log into the AWS Console and follow these steps:
 
 Great job! You've deployed an s3 Bucket and DynamoDB Table
 
-How does this work though?
+## How does this work though?
 
 ![remote-state](../images/s3-remote-state.png)
 
 `S3 bucket` - Stores the state of your Terraform stack
+
 `DynamoDB Table` - Used for State Locking and Consistentcy Checking. It does this by storing bucket and key variables in a table. 
 
 ### What is State Locking and why does it matter?

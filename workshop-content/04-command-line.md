@@ -34,8 +34,10 @@ Where `XXXX` appears, we need to fill in with some information:
 Run the following command to find out what version of Terraform you're working with:
 
 `terraform -version`
-
-![terraform version](../images/terraform-version.png)
+```
+~ >>> terraform -v
+Terraform v0.14.2
+```
 
 In this example, I'd replace `XXXX` with `0.14.2`
 
@@ -84,9 +86,11 @@ To check this has worked, you can run:
 `terraform workspace list`
 
 This should show your new workspace. The `*` denotes which workspace you're using:
-
-![terraform workspace list](../images/workspace-list.png)
-
+```
+~ >>> terraform workspace list
+  default
+* devops-represents-terraform-workshop
+```
 
 --- 
 

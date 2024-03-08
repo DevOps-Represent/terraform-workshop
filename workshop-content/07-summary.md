@@ -15,5 +15,5 @@
 
 * You can use `.tfvars` files to separate out variable values, for example dev and prod.
 
-* It is easy to run terraform commands to manage your stack.
+* It is easy to run terraform commands such as plan and apply to manage your stack.
 

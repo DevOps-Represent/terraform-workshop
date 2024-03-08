@@ -19,7 +19,9 @@ In this file, we are going to configure an s3 bucket and bucket policy that is e
 Here's what we're creating:
 
 ![s3 bucket for web hosting](../images/s3-web-hosting.png)
-
+```
+Internet -> S3 Bucket [html files, bucket policy]
+```
 ---
 
 ## `variables.tf`
