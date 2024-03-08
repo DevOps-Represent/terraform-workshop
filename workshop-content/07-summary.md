@@ -17,3 +17,4 @@
 
 * It is easy to run terraform commands such as plan and apply to manage your stack.
 
+If you are interested in learning more about Terraform, HashiCorp offer [free training tutorials.](https://developer.hashicorp.com/terraform/tutorials/certification-003/associate-study-003)

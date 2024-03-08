@@ -8,7 +8,7 @@ DevOps Represent with the massive support from SEEKers are hosting workshops on 
 - Anyone looking to add new skills to their resume
 - People in tech curious about Terraform, but haven't had a chance to use it
 
-</p></details>
+</p></details></br>
 
 <details><summary>What will we be covering in 1 workshop?</summary><p>
 
@@ -19,19 +19,19 @@ DevOps Represent with the massive support from SEEKers are hosting workshops on 
 - Terraform in the command line
 - Clean up/Summary
 
-</p></details>
+</p></details></br>
 
 <details><summary>What we won't be covering</summary><p>
 
-- This will not be covering AWS cloud 101 topics, see our previous bootcamp content for this
+- This will not be covering AWS cloud 101 topics, [see our previous bootcamp content for AWS Cloud Networking](https://github.com/DevOps-Represent/DevOps-Represent-Cloud-Networking/tree/master)
 
-</p></details>
+</p></details></br>
 
 <details><summary>How will you be learning?</summary><p>
 
 The workshop will be a mix of theoretical, hands-on, collaboration and solo work.
 
-</p></details>
+</p></details></br>
 
 <details><summary>What will you need?</summary><p>
 
@@ -41,9 +41,7 @@ The workshop will be a mix of theoretical, hands-on, collaboration and solo work
 
 **NOTE: We'll provide optional time prior to the workshop for set up help for peope who need it**
 
-</p></details>
-
-***
+</p></details></br>
 
 
 
@@ -73,4 +71,4 @@ The workshop will be a mix of theoretical, hands-on, collaboration and solo work
 [Deploy Update Destroy](workshop-content/06-deploy-update-destroy.md)
 
 
-*Wrap Up and Q&A*
+[Wrap Up and Q&A](workshop-content/07-summary.md)
