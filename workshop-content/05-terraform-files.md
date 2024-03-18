@@ -55,6 +55,12 @@ As bucket names must be unique, replace `XXXX` with a unique value like your nam
 
 Here's where we create and configure an s3 bucket and policy for website hosting. You'll see we're using [Terraform 'resource'](https://www.terraform.io/docs/language/resources/syntax.html) for this.
 
+You may also notice that in this file, there is also a `data` block being used. Data blocks are used to retrieve and reference information from existing resources in the infrastructure. This allows you to query AWS services to gather information that might be needed for configuration or other parts of your Terraform code.
+
+Another example is in the [common.tf](../common.tf) file. The `data` block queries information about the AWS account being used through an API call, which is then referenced in `bucket = "${XXXX}-${data.aws_caller_identity.current.account_id}"`.
+
+For further reading on `data` blocks, visit [AWS Terraform data source](https://developer.hashicorp.com/terraform/language/data-sources)
+
 Let's try and avoid a simple copy paste and take a look at the official documentation to fill in the required information!
 
 ```
