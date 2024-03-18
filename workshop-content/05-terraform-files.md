@@ -42,7 +42,7 @@ variable "bucket_name" {
 Let's now give our `bucket_name` variable a value!
 
 ```
-bucket_name = "devops-rep-terraform-[XXXX]-[dev/prod]"
+bucket_name = "devops-represent-terraform-[XXXX]-[dev/prod]"
 ```
 
 Where `XXXX` appears, we need to fill in with some information

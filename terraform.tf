@@ -9,7 +9,7 @@ terraform {
   }
 
   backend "s3" {
-    workspace_key_prefix = "devops-rep-terraform-workshop"
+    workspace_key_prefix = "[YOUR-NAME]-devops-represent-terraform-workshop"
   }
 
 }

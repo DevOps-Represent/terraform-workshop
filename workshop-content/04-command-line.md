@@ -28,7 +28,7 @@ terraform {
   }
 
   backend "s3" {
-    workspace_key_prefix = "devops-rep-terraform-workshop"
+    workspace_key_prefix = "[YOUR-NAME]-devops-represent-terraform-workshop"
   }
 
 }
@@ -92,7 +92,7 @@ terraform init \
 Now we can create our workspace and give it a name:
 
 ```bash
-export workspace=devops-rep-terraform-workshop
+export workspace=[YOUR-NAME]-devops-represent-terraform-workshop
 terraform workspace new $workspace 2> /dev/null || true
 terraform workspace select $workspace
 ```
@@ -108,7 +108,7 @@ This should show your new workspace. The `*` denotes which workspace you're usin
 ```
 ~ terraform workspace list
   default
-* devops-rep-terraform-workshop
+* [YOUR-NAME]-devops-represent-terraform-workshop
 ```
 
 ---
