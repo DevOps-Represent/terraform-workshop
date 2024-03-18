@@ -7,14 +7,6 @@ resource "aws_s3_bucket" "web_hosting_bucket" {
   }
 }
 
-resource "aws_s3_bucket_ownership_controls" "web_hosting_ownership" {
-  bucket = aws_s3_bucket.web_hosting_bucket.id
-
-  rule {
-    object_ownership = "XXXX"
-  }
-}
-
 resource "aws_s3_bucket_public_access_block" "web_hosting_public_access_block" {
   bucket = aws_s3_bucket.web_hosting_bucket.id
 
@@ -22,15 +14,6 @@ resource "aws_s3_bucket_public_access_block" "web_hosting_public_access_block" {
   block_public_policy     = false
   ignore_public_acls      = false
   restrict_public_buckets = false
-}
-
-resource "aws_s3_bucket_acl" "web_hosting_acl" {
-  depends_on = [
-    aws_s3_bucket_ownership_controls.web_hosting_ownership,
-  aws_s3_bucket_public_access_block.web_hosting_public_access_block]
-
-  bucket = aws_s3_bucket.web_hosting_bucket.id
-  acl    = "XXXX"
 }
 
 resource "aws_s3_bucket_website_configuration" "web_hosting_website" {
@@ -47,6 +30,7 @@ resource "aws_s3_bucket_website_configuration" "web_hosting_website" {
 
 # Bucket Policy
 resource "aws_s3_bucket_policy" "web_hosting_policy" {
+  depends_on = [aws_s3_bucket_public_access_block.web_hosting_public_access_block]
   bucket = aws_s3_bucket.web_hosting_bucket.id
 
   policy = data.aws_iam_policy_document.web_hosting_policy.json
