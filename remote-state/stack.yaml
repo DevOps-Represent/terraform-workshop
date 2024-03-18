@@ -4,11 +4,11 @@ Parameters:
   StateBucketNamePrefix:
     Description: Name prefix of the state bucket
     Type: String
-    Default: devops-girls-terraform
+    Default: YOUR-NAME-terraform-workshop-state-bucket
   LockTableName:
     Description: Name of the lock table
     Type: String
-    Default: terraform
+    Default: YOUR-NAME-terraform-workshop-lock-table
 
 Resources:
   StateBucket:
@@ -19,8 +19,8 @@ Resources:
         Status: Enabled
       BucketEncryption:
         ServerSideEncryptionConfiguration:
-        - ServerSideEncryptionByDefault:
-            SSEAlgorithm: aws:kms
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
       PublicAccessBlockConfiguration:
         BlockPublicAcls: true
         BlockPublicPolicy: true
@@ -32,11 +32,11 @@ Resources:
     Properties:
       TableName: !Ref LockTableName
       AttributeDefinitions:
-      - AttributeName: LockID
-        AttributeType: S
+        - AttributeName: LockID
+          AttributeType: S
       KeySchema:
-      - AttributeName: LockID
-        KeyType: HASH
+        - AttributeName: LockID
+          KeyType: HASH
       BillingMode: PAY_PER_REQUEST
 
 Outputs:

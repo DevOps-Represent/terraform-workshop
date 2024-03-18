@@ -1,4 +1,5 @@
 # Remote State - s3 and DynamoDB
+
 In this section we're going to go through the steps of setting up your remote state resources.
 
 There's [more than one way to set up your remote state](https://www.terraform.io/docs/language/settings/backends/index.html), the way we're doing it today is using AWS resources, here's the [official Terraform documentation](https://www.terraform.io/docs/language/settings/backends/s3.html) on this.
@@ -12,17 +13,18 @@ This [template](../remote-state/stack.yaml) provisions a CloudFormation stack in
 To deploy this stack we can log into the AWS Console and follow these steps:
 
 1. Navigate to Cloudformation
-2. Create Stack (With new resources)
-3. Select `Template is ready`
-4. Select `Upload a template file`
-5. Click `Choose file`
-6. Select your locally saved file `/remote-state/stack.yaml`
-7. Click `Next`
-8. Give your stack a name `devops-girls-terraform-workshop`
-9. Check your parameters (LockTableName = terraform, StateBucketNamePrefix=devops-girls-terraform)
-10. Click `Next`
+2. Click `Create stack`
+3. Select `With new resources (standard)`
+4. Select `Template is ready`
+5. Select `Upload a template file`
+6. Click `Choose file`
+7. Select your locally saved file `/remote-state/stack.yaml`
+8. Click `Next`
+9. Give your stack a name `[YOUR-NAME]-terraform-workshop`
+10. Rename your `LockTableName` and `StateBucketNamePrefix` parameters (eg. `LockTableName = franca-terraform-workshop-lock-table`, `StateBucketNamePrefix = franca-terraform-workshop-state-bucket`)
 11. Click `Next`
-12. Click `Create Stack`
+12. Click `Next`
+13. Click `Submit`
 
 Great job! You've deployed an s3 Bucket and DynamoDB Table
 
@@ -30,5 +32,4 @@ How does this work though?
 
 ![remote-state](../images/s3-remote-state.png)
 
-## [NEXT SECTION  - Command Line 👉🏽](04-command-line.md)
-
+## [NEXT SECTION - Command Line 👉🏽](04-command-line.md)

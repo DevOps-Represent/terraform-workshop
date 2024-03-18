@@ -42,7 +42,7 @@ variable "bucket_name" {
 Let's now give our `bucket_name` variable a value!
 
 ```
-bucket_name = "devopsgirls-terraform-[XXXX]-[dev/prod]"
+bucket_name = "devops-rep-terraform-[XXXX]-[dev/prod]"
 ```
 
 Where `XXXX` appears, we need to fill in with some information
@@ -60,36 +60,73 @@ Let's try and avoid a simple copy paste and take a look at the official document
 ```
 # S3 bucket for web hosting
 resource "aws_s3_bucket" "web_hosting_bucket" {
-  bucket = "XXXX"
-  acl    = "XXXX"
+  bucket = "${XXXX}-${data.aws_caller_identity.current.account_id}"
 
-  website {
-    index_document = "XXXX"
-    error_document = "XXXX"
+  tags = {
+    Public = "Testing bucket as part of workshop content"
   }
 }
 
+resource "aws_s3_bucket_ownership_controls" "web_hosting_ownership" {
+  bucket = aws_s3_bucket.web_hosting_bucket.id
+
+  rule {
+    object_ownership = "XXXX"
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "web_hosting_public_access_block" {
+  bucket = aws_s3_bucket.web_hosting_bucket.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+
+resource "aws_s3_bucket_acl" "web_hosting_acl" {
+  depends_on = [
+    aws_s3_bucket_ownership_controls.web_hosting_ownership,
+    aws_s3_bucket_public_access_block.web_hosting_public_access_block]
+
+  bucket = aws_s3_bucket.web_hosting_bucket.id
+  acl    = "public-read"
+}
+
+resource "aws_s3_bucket_website_configuration" "web_hosting_website" {
+  bucket = aws_s3_bucket.web_hosting_bucket.id
+
+  index_document {
+    suffix = "XXXX"
+  }
+
+  error_document {
+    key = "XXXX"
+  }
+}
+
+# Bucket Policy
 resource "aws_s3_bucket_policy" "web_hosting_policy" {
   bucket = aws_s3_bucket.web_hosting_bucket.id
 
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression's result to valid JSON syntax.
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Id      = "webhosting-bucket-policy"
-    Statement = [
-      {
-        Sid       = "XXXX"
-        Effect    = "XXXX"
-        Principal = "*"
-        Action    = "XXXX"
-        Resource = [
-          XXXX,
-          "XXXX/*"
-        ]
-      },
-    ]
-  })
+  policy = data.aws_iam_policy_document.web_hosting_policy.json
+}
+
+data "aws_iam_policy_document" "web_hosting_policy" {
+  statement {
+    principals {
+      type        = "XXXX"
+      identifiers = ["*"]
+    }
+
+    actions = ["XXXX"]
+
+    resources = [
+      XXXX,
+      "XXXX/*"
+      ]
+  }
 }
 
 ```
@@ -99,17 +136,18 @@ Where `XXXX` appears, we need to fill in some information:
 ### s3 Bucket
 
 - `bucket` - we will be using our `bucket_name` variable here - here is the documentation on [How To Use Variables](https://www.terraform.io/docs/language/values/variables.html#using-input-variable-values)
-- `acl` - let's take a look at the docs, which value do you think is best for web hosting? [Terraform AWS Docs ACL](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#acl)
+- `object_ownership` - how should ownership of objects that are uploaded to the bucket be assigned? Which value should be used in our case? [Terraform AWS Docs Ownership Controls](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls)
+- `acl` - let's take a look at the docs, which value do you think is best for web hosting? [Terraform AWS Docs ACL](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_acl)
 - `index_document` - we've provided you with some basic website files in the folder [website_files](/website_files)
 - `error_document` - we've provided you with some basic website files in the folder [website_files](/website_files)
 
 ---
 
-### `Bucket Policy`
+### Bucket Policy
 
 AWS documentation provides us with the bucket policy required for web hosting, so let's use this to fill in the fields with `XXXX`
 
-- `Sid, Effect, Action`: [s3 bucket policy for web hosting](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) - find "Granting read-only permission to an anonymous user"
+- `Type, Action`: [s3 bucket policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy)
 - `Resource` - you'll need the s3 bucket ARN, which can be done with Terraform - [use this example to work out how to add your ARN](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy#basic-usage)
 
 ## [NEXT SECTION - Terraform Commands 👉🏽](06-deploy-update-destroy.md)

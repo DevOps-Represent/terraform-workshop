@@ -27,19 +27,36 @@ terraform {
     }
   }
 
+  backend "s3" {
+    workspace_key_prefix = "devops-rep-terraform-workshop"
+  }
+
+}
+
 ```
 
 Where `XXXX` appears, we need to fill in with some information:
 
 Run the following command to find out what version of Terraform you're working with:
 
-`terraform -version`
+```
+~ terraform version
+```
 
-![terraform version](../images/terraform-version.png)
+Example output:
 
-In this example, I'd replace `XXXX` with `0.14.2`
+```
+Terraform v1.7.4
+on darwin_arm64
++ provider registry.terraform.io/hashicorp/aws v5.40.0
+```
 
-To find out the LATEST version of AWS Terraform, you can visit this page: [AWS Latest Version](https://registry.terraform.io/providers/hashicorp/aws/latest)
+In this example, replace `XXXX` in `required_version` with `1.7.4` and in `version` with `5.40.0`
+
+To find out the LATEST version of:
+
+- Terraform, visit [Terraform Latest Version](https://developer.hashicorp.com/terraform/install)
+- AWS Terraform, visit [AWS Latest Version](https://registry.terraform.io/providers/hashicorp/aws/latest)
 
 ---
 
@@ -56,39 +73,45 @@ export account_id=$(aws sts get-caller-identity --query Account --output text)
 export global_region=ap-southeast-2
 ```
 
-Now we're going to run the `terraform init` command to configure the backend by mapping to the resources we've created in our [remote-state-set-up](04-remote-state-set-up.md) steps. 
+Now we're going to run the `terraform init` command to configure the backend by mapping to the resources we've created in our [remote-state-set-up](04-remote-state-set-up.md) steps.
+
+Remember to replace `[YOUR-NAME]` with the name you used when creating the remote state stack (in the AWS console).
 
 ```bash
 terraform init \
   -backend-config=region=$global_region \
-  -backend-config=bucket=devops-girls-terraform-$account_id \
+  -backend-config=bucket=[YOUR-NAME]-terraform-workshop-state-bucket-$account_id \
   -backend-config=key=terraform.tfstate \
-  -backend-config=dynamodb_table=terraform
+  -backend-config=dynamodb_table=[YOUR-NAME]-terraform-workshop-lock-table
 ```
 
 ---
-
 
 ### Define workspace
 
 Now we can create our workspace and give it a name:
 
 ```bash
-export workspace=devops-girls-terraform-workshop
+export workspace=devops-rep-terraform-workshop
 terraform workspace new $workspace 2> /dev/null || true
 terraform workspace select $workspace
 ```
 
 To check this has worked, you can run:
 
-`terraform workspace list`
+```
+terraform workspace list
+```
 
 This should show your new workspace. The `*` denotes which workspace you're using:
 
-![terraform workspace list](../images/workspace-list.png)
+```
+~ terraform workspace list
+  default
+* devops-rep-terraform-workshop
+```
 
-
---- 
+---
 
 <details><summary>Troubleshooting Tips</summary><p>
 
@@ -96,18 +119,18 @@ You'll face some issues if your initialization details don't match your backend 
 
 This needs to match the **s3 Bucket** you created in your [Remote State Stack](../remote_state/stack.yaml)
 
-`-backend-config=bucket=devops-girls-terraform-$account_id \` 
-
+`-backend-config=bucket=[YOUR-NAME]-terraform-workshop-lock-table-$account_id \`
 
 This needs to match the **DynamoDB table** name you created in your [Remote State Stack](../remote_state/stack.yaml)
 
-`-backend-config=dynamodb_table=terraform` 
+`-backend-config=dynamodb_table=[YOUR-NAME]-terraform-workshop-lock-table`
 
 If you've had some issues already and the `terraform-init` command is telling you the bucket doesn't exist, try the following command to remove th state lock file:
 
-`rm -rf .terraform .terraform.lock.hcl`
+```
+rm -rf .terraform .terraform.lock.hcl
+```
 
 </p></details>
-
 
 ## [NEXT SECTION - Terraform Files 👉🏽](05-terraform-files.md)
