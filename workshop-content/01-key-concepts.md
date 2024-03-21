@@ -21,7 +21,28 @@ The documentation is excellent. This means using Terraform can be easier to lear
 
 ## More Key Concepts:
 
+### Terraform isn't magic
+Terraform works by using API calls to the Cloud Providers to make changes to your infrastructure. These are the same calls you can do via CLI tools. 
 
+If you are using terraform for new features, you may need to check out the API documentation for your provider and the [terraform providers documentation](https://registry.terraform.io/browse/providers)
+
+### Terraform has a CLI and Configuration
+The configuration files can be checked into your version control as code. 
+This can then be checked out by your team and using the Terraform CLI
+
+- Teraform CLI can run locally to update resources in the cloud. 
+- Used to revert back to an old version of the config (like before a bucket was removed etc)
+- Made as a template to start a new terraform deployment off.
+- Be linked to a build system CI / CD pipeline to automatically deploy your terraform. `e.g. When we check in our config to version control, build a bucket in this account.`
+
+### Terraform enables teams to work together on infrastructure
+
+Terraform supports State to know the current state of your technology stack vs the changes you want to make. 
+
+This means it supports creating detailed plans to show you the changes you are going to make to resources before making the changes.
+
+It also means that it can be set up to allow multiple people to work on the same infrastructure without conflicting API calls causing chaos. 
+See more in the [Local vs remote state](03-local-vs-remote-state.md)
 
 ![key-concepts](../images/key-concepts.png)
 

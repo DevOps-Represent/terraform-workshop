@@ -74,14 +74,6 @@ resource "aws_s3_bucket" "web_hosting_bucket" {
   }
 }
 
-resource "aws_s3_bucket_ownership_controls" "web_hosting_ownership" {
-  bucket = aws_s3_bucket.web_hosting_bucket.id
-
-  rule {
-    object_ownership = "XXXX"
-  }
-}
-
 resource "aws_s3_bucket_public_access_block" "web_hosting_public_access_block" {
   bucket = aws_s3_bucket.web_hosting_bucket.id
 
@@ -89,16 +81,6 @@ resource "aws_s3_bucket_public_access_block" "web_hosting_public_access_block" {
   block_public_policy     = false
   ignore_public_acls      = false
   restrict_public_buckets = false
-}
-
-
-resource "aws_s3_bucket_acl" "web_hosting_acl" {
-  depends_on = [
-    aws_s3_bucket_ownership_controls.web_hosting_ownership,
-    aws_s3_bucket_public_access_block.web_hosting_public_access_block]
-
-  bucket = aws_s3_bucket.web_hosting_bucket.id
-  acl    = "public-read"
 }
 
 resource "aws_s3_bucket_website_configuration" "web_hosting_website" {
@@ -143,10 +125,6 @@ Where `XXXX` appears, we need to fill in some information:
 ### s3 Bucket
 
 - `bucket` - we will be using our `bucket_name` variable here - here is the documentation on [How To Use Variables](https://www.terraform.io/docs/language/values/variables.html#using-input-variable-values)
-
-- `object_ownership` - how should ownership of objects that are uploaded to the bucket be assigned? Which value should be used in our case? [Terraform AWS Docs Ownership Controls](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls)
-
-- `website_configuration` - let's take a look at the docs, which value do you think is best for web hosting? [Terraform AWS Docs website_configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration)
 
 - `index_document` - we've provided you with some basic website files in the folder [website_files](/website_files)
 

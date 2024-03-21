@@ -33,7 +33,7 @@ Your Cloudformation stack should show `status: CREATE_COMPLETE`
 
 ## How does this work though?
 
-Remote state in Terraform uses the following resources:
+Remote state in Terraform deployed this way uses the following resources:
 
 *S3 Bucket* - Stores the state of your terraform stack
 
