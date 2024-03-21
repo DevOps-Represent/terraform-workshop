@@ -1,15 +1,15 @@
 terraform {
-  required_version = "~> 0.14"
+  required_version = "~> 1.7.4"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.37"
+      version = ">= 5.40.0"
     }
   }
 
   backend "s3" {
-    workspace_key_prefix = "devops-girls-terraform-workshop"
+    workspace_key_prefix = "[YOUR-NAME]-devops-represent-terraform-workshop"
   }
 
 }
