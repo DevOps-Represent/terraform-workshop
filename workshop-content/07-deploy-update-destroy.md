@@ -103,4 +103,4 @@ _If you want to destroy your prod stack just update the name of the tfvars file 
 
 Remember to also delete the Cloudformation stack holding your remote state setup- after emptying your state bucket, delete the `[YOUR-NAME]-terraform-workshop` from the Cloudformation console.
 
-## [NEXT SECTION - Summary 👉🏽](07-summary.md)
+## [NEXT SECTION - Summary 👉🏽](08-summary.md)

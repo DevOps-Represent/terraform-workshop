@@ -28,7 +28,7 @@ This is file used to declare what variables we will have to work with.
 
 Let's declare `bucket_name` as a variable:
 
-```
+```terraform
 variable "bucket_name" {
   type        = string
   description = "The name of the bucket - this must be unique"
@@ -42,12 +42,13 @@ variable "bucket_name" {
 Let's now give our `bucket_name` variable a value!
 
 ```
-bucket_name = "devops-represent-terraform-[XXXX]-[dev/prod]"
+bucket_name = "terraform-workshop-[XXXX]-[dev/prod]"
 ```
 
 Where `XXXX` appears, we need to fill in with some information
 
 As bucket names must be unique, replace `XXXX` with a unique value like your name!
+If you are struggling to create the bucket, you may also need something unique like a random number
 
 ---
 
@@ -63,7 +64,7 @@ For further reading on `data` blocks, visit [AWS Terraform data source](https://
 
 Let's try and avoid a simple copy paste and take a look at the official documentation to fill in the required information!
 
-```
+```terraform
 # S3 bucket for web hosting
 resource "aws_s3_bucket" "web_hosting_bucket" {
   bucket = "${XXXX}-${data.aws_caller_identity.current.account_id}"
@@ -142,9 +143,13 @@ Where `XXXX` appears, we need to fill in some information:
 ### s3 Bucket
 
 - `bucket` - we will be using our `bucket_name` variable here - here is the documentation on [How To Use Variables](https://www.terraform.io/docs/language/values/variables.html#using-input-variable-values)
+
 - `object_ownership` - how should ownership of objects that are uploaded to the bucket be assigned? Which value should be used in our case? [Terraform AWS Docs Ownership Controls](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls)
-- `acl` - let's take a look at the docs, which value do you think is best for web hosting? [Terraform AWS Docs ACL](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_acl)
+
+- `website_configuration` - let's take a look at the docs, which value do you think is best for web hosting? [Terraform AWS Docs website_configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration)
+
 - `index_document` - we've provided you with some basic website files in the folder [website_files](/website_files)
+
 - `error_document` - we've provided you with some basic website files in the folder [website_files](/website_files)
 
 ---
@@ -154,6 +159,7 @@ Where `XXXX` appears, we need to fill in some information:
 AWS documentation provides us with the bucket policy required for web hosting, so let's use this to fill in the fields with `XXXX`
 
 - `Type, Action`: [s3 bucket policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy)
+
 - `Resource` - you'll need the s3 bucket ARN, which can be done with Terraform - [use this example to work out how to add your ARN](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_policy#basic-usage)
 
-## [NEXT SECTION - Terraform Commands 👉🏽](06-deploy-update-destroy.md)
+## [NEXT SECTION - Terraform Commands 👉🏽](07-deploy-update-destroy.md)

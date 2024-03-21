@@ -14,7 +14,7 @@ DevOps Represent with the massive support from SEEKers are hosting workshops on 
 
 - High level introduction of Terraform concepts
 - Terraform file structures
-- Setting up a remote state in AWS
+- Setting up a remote state in AWS and why
 - Configuring an s3 bucket for website hosting
 - Terraform in the command line
 - Clean up/Summary
@@ -41,11 +41,10 @@ The workshop will be a mix of theoretical, hands-on, collaboration and solo work
 
 **NOTE: We'll provide optional time prior to the workshop for set up help for peope who need it**
 
-</p></details>
+</p></details></br>
 
 ***
-
-
+</br>
 
 # Workshop Details
 
@@ -60,17 +59,21 @@ The workshop will be a mix of theoretical, hands-on, collaboration and solo work
 
 [File Structure](workshop-content/02-file-structure.md)
 
-[Remote State Set Up](workshop-content/03-remote-state-set-up.md)
+[Local vs Remote State](workshop-content/03-local-vs-remote-state.md)
 
-[Command Line](workshop-content/04-command-line.md)
+[Remote State Set Up](workshop-content/04-remote-state-set-up.md)
+
+[Command Line](workshop-content/05-command-line.md)
 
 *Break*
 
-## Part 2
+## PART 2
 
-[Terraform Files](workshop-content/05-terraform-files.md)
+[Terraform Files](workshop-content/06-terraform-files.md)
 
-[Deploy Update Destroy](workshop-content/06-deploy-update-destroy.md)
+[Deploy Update Destroy](workshop-content/07-deploy-update-destroy.md)
 
 
 *Wrap Up and Q&A*
+
+[Bonus Content: Modules and more](workshop-content/09-bonus-modules.md)

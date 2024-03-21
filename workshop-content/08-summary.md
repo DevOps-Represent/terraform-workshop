@@ -17,3 +17,4 @@
 
 * It is easy to run terraform commands to manage your stack.
 
+## [NEXT SECTION - Bonus Content: Modules and more 👉🏽](09-bonus-modules.md)
