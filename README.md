@@ -1,6 +1,6 @@
 # Terraform Workshop
 
-DevOps Girls with the massive support from SEEKers are hosting workshops on Terraform!
+DevOps Represent with the massive support from SEEKers are hosting workshops on Terraform!
 
 <details><summary>Who would benefit from this workshop?</summary><p>
 
@@ -14,7 +14,7 @@ DevOps Girls with the massive support from SEEKers are hosting workshops on Terr
 
 - High level introduction of Terraform concepts
 - Terraform file structures
-- Setting up a remote state in AWS
+- Setting up a remote state in AWS and why
 - Configuring an s3 bucket for website hosting
 - Terraform in the command line
 - Clean up/Summary
@@ -41,36 +41,39 @@ The workshop will be a mix of theoretical, hands-on, collaboration and solo work
 
 **NOTE: We'll provide optional time prior to the workshop for set up help for peope who need it**
 
-</p></details>
+</p></details></br>
 
 ***
-
-
+</br>
 
 # Workshop Details
 
 ## Before the Workshop
 [Set Up Instructions](workshop-content/00-set-up.md)
 
-*Reach out to the DevOps Girls slack community before the workshop if you're having any issues with your set up, we will be happy to help!*
-*If you're not a member of a slack community, you can DM on Twitter for an invite - [@DevOpsGirls](https://twitter.com/DevOpsGirls)*
+*Reach out to the DevOps Represent slack community before the workshop if you're having any issues with your set up, we will be happy to help!*
+*If you're not a member of a slack community, you can DM on Twitter / X for an invite - [@DevOpsRepresent](https://twitter.com/DevOpsRepresent)*
 
 ## PART 1
 [Key Concepts](workshop-content/01-key-concepts.md)
 
 [File Structure](workshop-content/02-file-structure.md)
 
-[Remote State Set Up](workshop-content/03-remote-state-set-up.md)
+[Local vs Remote State](workshop-content/03-local-vs-remote-state.md)
 
-[Command Line](workshop-content/04-command-line.md)
+[Remote State Set Up](workshop-content/04-remote-state-set-up.md)
+
+[Command Line](workshop-content/05-command-line.md)
 
 *Break*
 
-## Part 2
+## PART 2
 
-[Terraform Files](workshop-content/05-terraform-files.md)
+[Terraform Files](workshop-content/06-terraform-files.md)
 
-[Deploy Update Destroy](workshop-content/06-deploy-update-destroy.md)
+[Deploy Update Destroy](workshop-content/07-deploy-update-destroy.md)
 
 
 *Wrap Up and Q&A*
+
+[Bonus Content: Modules and more](workshop-content/09-bonus-modules.md)

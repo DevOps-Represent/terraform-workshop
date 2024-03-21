@@ -16,7 +16,7 @@ We need these values before we can initialise our Terraform.
 
 Here's your `terraform.tf` file:
 
-```
+```terraform
 terraform {
   required_version = "XXXX"
 
@@ -28,7 +28,7 @@ terraform {
   }
 
   backend "s3" {
-    workspace_key_prefix = "[YOUR-NAME]-devops-represent-terraform-workshop"
+    workspace_key_prefix = "[YOUR-NAME]-terraform-workshop"
   }
 
 }
@@ -92,7 +92,7 @@ terraform init \
 Now we can create our workspace and give it a name:
 
 ```bash
-export workspace=[YOUR-NAME]-devops-represent-terraform-workshop
+export workspace=[YOUR-NAME]-terraform-workshop
 terraform workspace new $workspace 2> /dev/null || true
 terraform workspace select $workspace
 ```
@@ -108,7 +108,7 @@ This should show your new workspace. The `*` denotes which workspace you're usin
 ```
 ~ terraform workspace list
   default
-* [YOUR-NAME]-devops-represent-terraform-workshop
+* [YOUR-NAME]-terraform-workshop
 ```
 
 ---
@@ -133,4 +133,4 @@ rm -rf .terraform .terraform.lock.hcl
 
 </p></details>
 
-## [NEXT SECTION - Terraform Files 👉🏽](05-terraform-files.md)
+## [NEXT SECTION - Terraform Files 👉🏽](06-terraform-files.md)

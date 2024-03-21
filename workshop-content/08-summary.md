@@ -17,3 +17,6 @@
 
 * It is easy to run terraform commands to manage your stack.
 
+If you are interested in learning more about Terraform, [Hashicorp have some good tutorials](https://developer.hashicorp.com/terraform/tutorials/certification-003/associate-study-003)
+
+## [NEXT SECTION - Bonus Content: Modules and more 👉🏽](09-bonus-modules.md)
