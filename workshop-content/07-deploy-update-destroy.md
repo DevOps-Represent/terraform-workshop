@@ -12,12 +12,13 @@ In this section, we are now going to look at the following Terraform commands:
 Great job! You've added all the pieces of the puzzle! Let's see if our terraform is valid!
 
 If you are not already at the root of your directory
-e.g. 
+e.g.
+
 ```
 USERNAME terraform-workshop %
 ```
-Navigate back there in your terminal.
 
+Navigate back there in your terminal.
 
 Run the following command to fix any formatting issues with your Terraform:
 
@@ -53,20 +54,22 @@ By adding the `-var-file` input you can specify which variable values you would 
 
 Each plan item will show the following
 
-#### The name of the resource it is creating according to Terraform. 
-* A resource such as an S3 bucket may have multiple items in the plan such as a policy, bucket and public access block.
+#### The name of the resource it is creating according to Terraform.
+
+- A resource such as an S3 bucket may have multiple items in the plan such as a policy, bucket and public access block.
 
 #### A key to show each variable in it after the plan is applied.
-* Each variable the API call needs will be shown with changes if there are any.
-* If the resource is retrieved from the api, this will show known after apply. 
-* `+` symbol means this is a new variable added or a new resource created.
-* `~` symbol means this is a change to an existing variable.
-* `-` symbol means this is a removal of a variable or a resource.
+
+- Each variable the API call needs will be shown with changes if there are any.
+- If the resource is retrieved from the api, this will show known after apply.
+- `+` symbol means this is a new variable added or a new resource created.
+- `~` symbol means this is a change to an existing variable.
+- `-` symbol means this is a removal of a variable or a resource.
 
 The most important part to check what it is planning to create, change or destroy before applying your plan.
 
 ```
-## e.g make sure the numbers below match the resources your looking to change. 
+## e.g make sure the numbers below match the resources your looking to change.
 
 Plan: 4 to add, 0 to change, 0 to destroy.
 ```
@@ -78,9 +81,11 @@ Once you're happy with 'the plan', you can now deploy your changes! This is the 
 ```
 terraform apply -var-file="config/dev.tfvars"
 ```
-It will first show you your plan and then create the resources. 
 
-After the apply has completed it will show you what number of resources have been changed. 
+It will first show you your plan and then create the resources.
+
+After the apply has completed it will show you what number of resources have been changed.
+
 ```
 Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 ```
@@ -123,13 +128,15 @@ _If you want to deploy your prod stack just update the name of the tfvars file f
 
 Now that it's time to clean up our work, let's destroy our stack! If you ever want to get your stack back, that is the beauty of infrastructure as code - you can easily re-deploy it exactly as it was before.
 
+Remember to first `cd ..` out of your `website_files` directory.
+
 To clean up your account, run the following command:
 
 ```
 terraform plan -destroy -var-file="config/dev.tfvars"
 ```
 
-and if you are happy with the 'destroy plan', 
+and if you are happy with the 'destroy plan',
 
 [**make sure your s3 bucket is empty**](https://docs.aws.amazon.com/AmazonS3/latest/userguide/empty-bucket.html), then run:
 
@@ -142,7 +149,8 @@ Great work! Now you can use the suggestions above to also confirm your s3 bucket
 _If you want to destroy your prod stack just update the name of the tfvars file from `config/dev.tfvars` to `config/prod.tfvars`_
 
 Remember to also delete the Cloudformation stack holding your remote state setup
--  after emptying your state bucket or the Cloudformation delete will fail. [If you created a bucket with versioning, you may also need to disable this.](https://repost.aws/knowledge-center/s3-delete-bucket) 
+
+- after emptying your state bucket or the Cloudformation delete will fail. [If you created a bucket with versioning, you may also need to disable this.](https://repost.aws/knowledge-center/s3-delete-bucket)
 
 - delete the `[YOUR-NAME]-terraform-workshop` from the Cloudformation console.
 
