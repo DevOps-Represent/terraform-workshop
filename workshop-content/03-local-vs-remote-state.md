@@ -18,4 +18,4 @@ Team members using only local state may be unaware of new state updates by other
 
 By using a remote state over just a local state, this supports a more seamless collaborative experience as there is no need for team members to manually share their local states. Remote states also provide concurrency safety through state locking mechanisms which prevents different team members from concurrently modifying the same state. Without this, conflicts and race conditions could emerge if state is not properly managed. Remotely stored state also adds an extra layer of resilience to the infrastructure as it is accessible from any machine.
 
-## [NEXT SECTION - Terraform Files 👉🏽](04-terraform-files.md)
+## [NEXT SECTION - Remote state set-up 👉🏽](04-remote-state-set-up.md)

@@ -57,19 +57,29 @@ Now we are going to turn what we just made into a Terraform module. The module s
 ```
 my_module_1 = {
   name = "example1_bucket"
-  tags = "bucket1 tag"
+  bucket_public_tag = "bucket1 tag"
 }
 
 my_module_2 = {
   name = "example2_bucket"
-  tags = "bucket2 tag"
+  bucket_public_tag = "bucket2 tag"
 }
 ```
 
-5. Create new variables for the module names in the root `variables.tf` file so that you are able to see the changes when deploying multiple instances of a module.
+5. Create new variables for the module names in the root `variables.tf` file so that you are able to see the changes when deploying multiple instances of a module. (Object variables don't require a type attribute)
 
 ### Module initialization
 
 6. Create a new `.tf` file in the root directory to use the new module
 7. Add the new module configuration in your new file. (Hint: refer to [s3 module example](https://github.com/terraform-aws-modules/terraform-aws-s3-bucket) and look at your module code to figure out what variables need to be passed in)
-8. Do a terraform `plan` and `apply` to check if your module is working
+8. Do a `terraform init` to install the module you just made
+9. Do a `terraform plan` to check if your module is working; it should plan to add 8 new resources
+
+```
+Plan: 8 to add, 0 to change, 0 to destroy.
+```
+
+10. Then `terraform apply` these changes
+11. Upload your website files `index.html` and `error.html` to both of your new buckets
+12. Check your two s3 buckets by hitting them from a browser
+13. Clean up your resources and destroy the stack (remember to `cd ..` out of your `website_files` directory)
