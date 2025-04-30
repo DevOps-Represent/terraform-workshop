@@ -5,10 +5,6 @@ Parameters:
     Description: Name prefix of the state bucket
     Type: String
     Default: YOUR-NAME-terraform-workshop-state-bucket
-  LockTableName:
-    Description: Name of the lock table
-    Type: String
-    Default: YOUR-NAME-terraform-workshop-lock-table
 
 Resources:
   StateBucket:
@@ -26,18 +22,6 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-
-  LockTable:
-    Type: AWS::DynamoDB::Table
-    Properties:
-      TableName: !Ref LockTableName
-      AttributeDefinitions:
-        - AttributeName: LockID
-          AttributeType: S
-      KeySchema:
-        - AttributeName: LockID
-          KeyType: HASH
-      BillingMode: PAY_PER_REQUEST
 
 Outputs:
   StateBucket:

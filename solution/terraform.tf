@@ -1,20 +1,21 @@
 terraform {
-  required_version = "~> 1.7.4"
+  required_version = "~> 1.11.0"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 5.40.0"
+      version = ">= 5.96.0"
     }
   }
 
   backend "s3" {
-    workspace_key_prefix = "[YOUR-NAME]-devops-represent-terraform-workshop"
+    workspace_key_prefix = "[YOUR-NAME]-terraform-workshop"
+    region               = "ap-southeast-2"
+    bucket               = "[YOUR-NAME]-terraform-workshop-state-bucket-[AWS-ACCOUNT-ID]"
+    key                  = "terraform.tfstate"
+    use_lockfile         = true
   }
-
 }
-
-
 
 provider "aws" {
   region = "ap-southeast-2"
