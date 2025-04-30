@@ -102,11 +102,10 @@ Now that you have an s3 bucket and policy set up for web hosting, you'll need to
 
 #### Using the command line:
 
-- navigate to the website_files folder in this repo - `cd website_files`
 - sync the contents of this folder with your s3 bucket:
 
 ```
-aws s3 sync . s3://yourbucketnamehere
+aws s3 sync website_files s3://yourbucketnamehere
 ```
 
 #### Using the console:
@@ -127,8 +126,6 @@ _If you want to deploy your prod stack just update the name of the tfvars file f
 ## Terraform Destroy
 
 Now that it's time to clean up our work, let's destroy our stack! If you ever want to get your stack back, that is the beauty of infrastructure as code - you can easily re-deploy it exactly as it was before.
-
-Remember to first `cd ..` out of your `website_files` directory.
 
 To clean up your account, run the following command:
 

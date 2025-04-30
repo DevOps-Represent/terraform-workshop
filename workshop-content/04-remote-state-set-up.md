@@ -8,7 +8,7 @@ We're going to deploy these resources using Cloudformation in `ap-southeast-2` S
 
 The Cloudformation template we're using can be found [HERE](../remote-state/stack.yaml).
 
-This [template](../remote-state/stack.yaml) provisions a CloudFormation stack in ap-southeast-2 that contains a S3 bucket named [YOUR-NAME]-terraform-workshop-state-bucket-XXXXX where XXXXX is the ID of the AWS account, as well as a DynamoDB lock table.
+This [template](../remote-state/stack.yaml) provisions a CloudFormation stack in ap-southeast-2 that contains a S3 bucket named [YOUR-NAME]-terraform-workshop-state-bucket-XXXXX where XXXXX is the ID of the AWS account.
 
 To deploy this stack we can log into the AWS Console and follow these steps:
 
@@ -21,26 +21,23 @@ To deploy this stack we can log into the AWS Console and follow these steps:
 7. Select your locally saved file `/remote-state/stack.yaml`
 8. Click `Next`
 9. Give your stack a name `[YOUR-NAME]-terraform-workshop`
-10. Rename your `LockTableName` and `StateBucketNamePrefix` parameters (eg. `LockTableName = franca-terraform-workshop-lock-table`, `StateBucketNamePrefix = franca-terraform-workshop-state-bucket`)
+10. Rename your `StateBucketNamePrefix` parameters (eg. `StateBucketNamePrefix = franca-terraform-workshop-state-bucket`)
 11. Click `Next`
 12. Click `Next`
 13. Click `Submit`
 
-Great job! You've deployed an s3 Bucket and DynamoDB Table to host your state. 
+Great job! You've deployed an s3 Bucket to host your state.
 
-You may need to wait a couple of minutes until these resources are fully deployed to continue. 
+You may need to wait a couple of minutes until these resources are fully deployed to continue.
 Your Cloudformation stack should show `status: CREATE_COMPLETE`
 
 ## How does this work though?
 
 Remote state in Terraform deployed this way uses the following resources:
 
-*S3 Bucket* - Stores the state of your terraform stack
-
-*DynamoDB Table*  - Database used for State Locking and Consistency Checking.
-This prevents people from making concurrent changes to a stack. 
+_S3 Bucket_ - Stores the state of your terraform stack.
+With terraform versions `1.10` and above, it also provides native state locking preventing people from making concurrent changes to a stack.
 
 ![remote-state](../images/s3-remote-state.png)
-
 
 ## [NEXT SECTION - Command Line 👉🏽](05-command-line.md)
